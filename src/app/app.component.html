@@ -1,0 +1,49 @@
+<div class="container pt-5 mn-5">
+    <h1 class="text-center mb-5">Bootstrap Month Year Picker</h1>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-light p-3 rounded border">
+                <h2>Basic</h2>
+                <month-year-picker
+                    [name]="'month-year-picker-1'"
+                    [(ngModel)]="date1"
+                    (ngamodelChange)="onDate1Change()">
+                </month-year-picker>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-light p-3 rounded border">
+                <h2>Required</h2>
+                <month-year-picker
+                    [name]="'month-year-picker-2'"
+                    [(ngModel)]="date2"
+                    required
+                    (ngamodelChange)="onDate2Change()">
+                </month-year-picker>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-light p-3 rounded border">
+                <h2>Min Date</h2>
+                <month-year-picker
+                    [name]="'month-year-picker-3'"
+                    [min-date]="date3Min"
+                    [(ngModel)]="date1"
+                    (ngamodelChange)="onDate1Change()">
+                </month-year-picker>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-light p-3 rounded border">
+                <h2>Disabled</h2>
+                <month-year-picker
+                    [name]="'month-year-picker-4'"
+                    disabled
+                    [(ngModel)]="date4"
+                    (ngamodelChange)="onDate4Change()">
+                </month-year-picker>
+            </div>
+        </div>
+    </div>
+</div>
+

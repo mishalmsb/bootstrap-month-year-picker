@@ -1,0 +1,46 @@
+.mongh-year-picker {
+  position: relative;
+  .dropdown-menu {
+    // min-width: 18rem;
+    max-width: 235px;
+    padding: 0;
+    .year-input {
+      max-width: 100px;
+      margin: 0 10px;
+    }
+    .badge.month {
+      width: 55px;
+      padding: 7px 0;
+      margin: 8px;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: $white;
+      border: 1px solid $gray-500;
+      &.active {
+        color: $white;
+        background-color: $primary;
+        border: 1px solid $primary;
+      }
+      &:hover {
+        color: $white;
+        background-color: $primary;
+        border: 1px solid $primary;
+      }
+      &[disabled],
+      &.disabled {
+        pointer-events: none !important;
+        background: $gray-100;
+        color: $gray-600;
+      }
+    }
+  }
+}
+
+.shadow-none {
+  box-shadow: none !important;
+}
+
+.outline-none {
+  outline: none !important;
+}

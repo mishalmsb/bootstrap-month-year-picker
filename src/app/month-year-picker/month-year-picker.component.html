@@ -1,0 +1,71 @@
+<div class="mongh-year-picker" (clickOutside)="onClickOutside()">
+    <div class="input-group">
+        <input type="text"
+            [name]="name+displayYearInputName"
+            [id]="name+displayYearInputName"
+            class="form-control component-element"
+            [ngClass]="{
+                'cursor-pointer': !disabled,
+                'ng-override-invalid': isInvalid
+            }"
+            [placeholder]="placeholder"
+            [required]="required"
+            [disabled]="disabled"
+            [(ngModel)]="displayDate"
+            prevent-typing
+            (focus)="onFocus()">
+        <div class="input-group-append"
+            [ngClass]="{'cursor-pointer': !disabled}"
+            (click)="onCalanderIconClick()">
+            <span class="input-group-text">
+                <img src="assets/img/icons-calendar.svg" alt="icons-calendar">
+            </span>
+        </div>
+    </div>
+    <div class="dropdown-menu bg-light"
+        [ngClass]="{'show': isCalanderVisible}">
+        <div class="card-header bg-light text-center">
+            <button type="button"
+                class="btn btn-link"
+                title="Previous year"
+                [disabled]="!selectedYear"
+                (click)="removeYear()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <input type="text"
+                [name]="name+'-year'"
+                [id]="name+'-year'"
+                class="form-control form-control-sm border novalidate text-center year-input d-inline-block"
+                placeholder="yyyy"
+                digitOnly
+                [(ngModel)]="selectedYear"
+                (ngModelChange)="onYearChange()">
+            <button type="button"
+                class="btn btn-link"
+                title="Next year"
+                [disabled]="!selectedYear"
+                (click)="addYear()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 py-2 text-center">
+            <button class="badge month font-xs font-weight-bold outline-none"
+                *ngFor="let month of months"
+                [ngClass]="{'active': selectedMonth && month.id == selectedMonth.id}"
+                [disabled]="!selectedYear"
+                (click)="selectMonth(month)">
+                {{month.shortName}}
+            </button>
+        </div>
+        <div class="card-footer px-0 py-1 bg-light text-center">
+            <button class="btn btn-light btn-sm outline-none shadow-none mr-1"
+                (click)="clear()">
+                Clear
+            </button>
+            <button class="btn btn-light btn-sm outline-none shadow-none ml-1"
+                (click)="onClickOutside()">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
